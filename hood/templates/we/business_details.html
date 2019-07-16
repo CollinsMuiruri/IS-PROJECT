@@ -1,0 +1,36 @@
+{# {%extends 'we/base.html'%} #}
+ {% block content %}
+{% load static %}
+{% load bootstrap4 %}
+{% block styles %}
+  {% bootstrap_css %}
+  {% include "we/navbar.html" %}
+  {{block.super}}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  {% endblock %}
+
+<style>
+p {
+  font-size: 20px;
+}
+h5 {
+  font-size: 20px;
+}
+.w3-container {
+}
+</style>
+
+<div class="w3-container">
+  <div class="w3-card-4" style="width:50%">
+    <p class="w3-card-img-top" class="img-responsive" style="width:100%">
+
+  </div>
+    <div class="left">
+    <a href="{% url 'business_details' image_id=business.id %}"><h5>Name: {{business.business_name}}</h5></a>
+      <p>Information: {{business.description}}</p>
+    </div>
+  </div>
+
+{% endblock %}

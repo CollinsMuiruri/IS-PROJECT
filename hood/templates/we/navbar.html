@@ -1,0 +1,120 @@
+{% load static %}
+<style media="screen">
+.left, .right {
+float: left;
+width: 20%; /* The width is 20%, by default */
+}
+
+.main {
+float: left;
+width: 60%; /* The width is 60%, by default */
+}
+
+/* Use a media query to add a breakpoint at 800px: */
+@media screen and (max-width: 800px) {
+.left, .main, .right {
+  width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+}
+}
+</style>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-family: 'Pangolin', cursive;">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'welcome' %}" style="padding-right:80px;padding-left:-10px">Logout             <style>
+                  body {
+                    min-height: 1vh;
+                    display: ;
+                    flex-direction: column;
+                    justify-content: left;
+                    align-items: ;
+                    background-color:;
+                  }
+                  .eyes {
+                    animation: moveEyes 1s forwards infinite;
+                  }
+
+                  @keyframes moveEyes {
+                    0% {
+                      transform: translateX(0%);
+                    }
+                    20% {
+                      transform: translate(2px, -5px);
+                    }
+                    40% {
+                      transform: translate(3px, -5px);
+                    }
+                    60% {
+                      transform: translate(6px, 0px);
+                    }
+                    80% {
+                      transform: translate(3px, 5px);
+                    }
+                    100% {
+                      transform: none;
+                    }
+                  }
+
+                  .loader {
+                    background-color: ;
+                    padding: 10px;
+                    border-radius: 50%;
+
+                    &__title {
+                      margin-top: 25px;
+                      font-family: Helvetica, Arial;
+                      letter-spacing: 1px;
+                      color: #1D1F20;
+                    }
+                  }
+                  </style>
+                  <div id="pic1" class="loader">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><path fill="#DDE8E3" d="M2 31.428C2 40.23 5.738 53 17.001 53 28.262 53 32 40.23 32 31.428c0-27.237-30-27.237-30 0zM32 31.428C32 40.23 35.738 53 47.002 53 58.264 53 62 40.23 62 31.428c0-27.237-30-27.237-30 0z"/><path fill="#FFF" d="M2.798 32.088c0 7.561 2.381 19.346 11.968 19.346 9.586 0 11.966-11.785 11.966-19.346.001-26.03-23.934-26.03-23.934 0zM32.799 32.088c0 7.561 2.38 19.346 11.968 19.346 9.586 0 11.967-11.785 11.967-19.346 0-26.03-23.935-26.03-23.935 0z"/><path class="eyes" fill="#493B30" d="M2.798 32.246c0 6.211 4.352 10.965 9.726 10.965 5.372 0 9.724-4.754 9.724-10.965 0-15.276-19.45-15.276-19.45 0zM32.799 32.246c0 6.211 4.353 10.965 9.726 10.965 5.371 0 9.723-4.754 9.723-10.965 0-15.276-19.449-15.276-19.449 0z"/></svg>
+                  </div></a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li><a href="{% url 'yes' %}"><i class="fa fa-tachometer fa-fw" aria-hidden="true"></i> Home</a></li>
+        <li><a href="{% url 'neighbourhoods' %}"><i class="fa fa-users fa-fw" aria-hidden="true"></i>Neighbourhoods</a></li>
+        <li><a href="{% url 'profile' %}">                {% if prof.profilepic %}
+                            <img src="{{prof.profilepic.url}}" alt="" class="img-fluid" style="border-radius:50%;width:30px!important;height:30px!important;">
+                        {% else %}
+                            <img src="{% static 'images/avatar.png' %}" alt="" class="img-fluid rounded-circle" style="border-radius:50%;width:30px!important;height:30px!important;">
+                        {% endif %}{{user.username}}</a></li>
+        <li><a href="{% url 'businesses' %}"><i class="fa fa-briefcase fa-fw" aria-hidden="true"></i>Businesses</a></li>
+        <li><a href="{% url 'contacts' %}"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>Contacts</a></li>
+        <li><a href=" {% url 'edit' %} "><i class="fa fa-tachometer" aria-hidden="true"></i>Edit profile</a></li>
+        <div class="col-sm-6 col-md-6 navbar-right">
+          {% if user.is_authenticated %}
+          <ul>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+
+                <li><a href="{%url 'welcome'%}"></a></li>
+                <li><a href="{% url 'new-image' %}">New post</a></li>
+                <li><a href="/accounts/password/change">Change password</a></li>
+                <li><a href="/logout">Logout</a></li>
+              </ul>
+
+              {% else %}
+              <li>
+                <a class="btn btn-default" href="/accounts/login">Login</a>
+              </li>
+              {% endif %}
+            </div>
+      </ul>
+
+
+
+<style media="screen">
+  #search{
+    font-size: 20px;
+  }
+</style>
+    </div>
+  </div>
+</nav>

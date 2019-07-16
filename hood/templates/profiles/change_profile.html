@@ -1,0 +1,67 @@
+{% load bootstrap4 %}
+{{ block.super}}
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <title>New post</title>
+        {{ form.media }}
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		
+        <!-- STYLE CSS -->
+        {% block styles %} {% bootstrap_css %}     
+        <link rel="stylesheet" href="{% static 'css/changeprofile/style.css' %}"> {% endblock %}
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<div class="image-holder">
+                    {% if prof.profilepic %}
+                    <img src="{{prof.profilepic.url}}" alt="" class="img-fluid" style="border-radius:50%;width:300px!important;height:300px!important;">
+                {% else %}
+                    <img src="{% static 'images/avatar.png' %}" alt="" class="img-fluid rounded-circle">
+                {% endif %}				</div>
+				<form method="post" enctype="multipart/form-data" id="form">
+                    {% csrf_token %}
+					<h3>Edit Your Profile</h3>
+					<div class="form-row">
+						<input type="text" class="form-control" placeholder="Hood-Name">
+						<input type="text" class="form-control" placeholder="Your E-Mail">
+					</div>
+					<div class="form-row">
+						<input type="text" class="form-control" placeholder="Phone">
+						<div class="form-holder">
+							<select name="" id="" class="form-control">
+								<option value="" disabled selected>Choose Your Neighbourhood</option>
+								<option value="class 01">Class 01</option>
+								<option value="class 02">Class 02</option>
+								<option value="class 03">Class 03</option>
+							</select>
+							<i class="zmdi zmdi-chevron-down"></i>
+						</div>
+                    </div>
+                    {% if prof.bio %}                   
+                    <textarea name="" id="" placeholder="Bio --> {{prof.bio}}" class="form-control" style="height: 130px;"></textarea>
+                    {% else %}
+                    <textarea name="" id="" placeholder="Your Bio Goes Here" class="form-control" style="height: 130px;"></textarea>
+                    {% endif %}                    
+					<button>Book Now
+						<i class="zmdi zmdi-long-arrow-right"></i>
+					</button>
+				</form>
+				
+			</div>
+		</div>
+
+        {% block scripts %}
+		<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+		<script src="{% static 'js/changeprofile.js' %}"></script>
+        {% bootstrap_javascript %} {% endblock %}
+	</body>
+</html>

@@ -1,0 +1,33 @@
+{%extends 'we/base.html'%} {% block content %}
+{% load static %}
+{% load bootstrap4 %}
+{% block styles %}
+  {% bootstrap_css %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  {% endblock %}
+
+<style>
+p {
+  font-size: 20px;
+}
+h5 {
+  font-size: 20px;
+}
+.w3-container {
+}
+</style>
+{% include "we/nav.html" %}
+
+<div class="w3-container">
+  <div class="w3-card-4" style="width:50%">
+    <img class="w3-card-img-top" src="{{image.image.url}}" class="img-responsive" alt="{{image_item.image_name}}" style="width:100%">
+
+  </div>
+    <div class="left">
+      <h5>Name: {{image.title}}</h5>
+      <p>Information: {{image.description}}</p>
+      <p>Time posted:<span class="badge badge-info">{{image.pub_date|timesince}}</span></p>
+    </div>
+  </div>
+{% endblock %}
