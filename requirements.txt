@@ -7,7 +7,7 @@ django-bootstrap4==0.0.6
 django-braces==1.13.0
 django-model-utils==3.1.2
 django-private-chat==0.1.8
-django-registration==2.4.1
+django-registration==3.1.2
 django-tinymce==2.7.0
 gunicorn==19.8.1
 houdini.py==0.1.0
